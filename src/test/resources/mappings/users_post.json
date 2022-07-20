@@ -1,0 +1,22 @@
+{
+    "request": {
+        "method": "POST",
+        "url": "/users"
+    },
+    "response": {
+        "status": 201,
+        "headers": { "Content-Type": "application/json" },
+        "jsonBody": {
+            "id": 999999,
+            "name": "{{jsonPath request.body '$.name'}}",
+            "username": "{{jsonPath request.body '$.username'}}",
+            "email": "{{jsonPath request.body '$.email'}}",
+            "address": {
+                "street": "Some street",
+                "suite": "Some suite",
+                "city": "Gothan",
+                "zipcode": "9999-99999"
+            }
+        }
+   }
+}

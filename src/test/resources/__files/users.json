@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Bruce Wayne",
+    "username": "BWayne",
+    "email": "bruce@wayne.com",
+    "address": {
+      "street": "Gotham hall",
+      "suite": "Mansion 01",
+      "city": "Gothan",
+      "zipcode": "1234-56788"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Cat Woman",
+    "username": "CWoman",
+    "email": "cat@woman.com",
+    "address": {
+      "street": "Gotham main",
+      "suite": "Apto 99",
+      "city": "Gothan",
+      "zipcode": "1111-12345"
+    }
+  }
+]
