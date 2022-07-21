@@ -1,0 +1,20 @@
+name: on_push
+
+on:
+  push:
+    branch:
+      - "**"
+
+jobs:
+
+    build_exec_test:
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-java@v2
+          with:
+            distribution: 'zulu'
+            java-version: 18
+        - name: Run RestAssured tests using Maven
+          run: mvn clean compile test
