@@ -4,15 +4,13 @@ import com.github.tomakehurst.wiremock.junit5.WireMockTest;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 @WireMockTest(httpPort = 9999)
-public class UsersTest {
+public class GetUsersTest {
 
     private RequestSpecification requestSpec;
 
@@ -40,26 +38,4 @@ public class UsersTest {
         and().
             body("[0].name", equalTo(expectedName));
     }
-
-    @Test
-    public void createsANewUser() {
-        User userToCreate = new User("Potato Teste", "mrpotato", "potato@teste.com");
-
-        given().
-            spec(requestSpec).
-        and().
-            body(userToCreate).
-        when().
-            post("/users").
-        then().
-            log().all().
-        and().
-            assertThat().
-            statusCode(201).
-        and().
-            body("name", equalTo(userToCreate.getName())).
-        and().
-            body("username", equalTo(userToCreate.getUserName()));
-    }
-
 }
