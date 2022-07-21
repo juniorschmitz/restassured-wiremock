@@ -44,7 +44,7 @@ public class PostUsersTest {
         and().
             body(userToCreate).
         when().
-            post("/user").
+            post("/users").
         then().
             log().all().
         and().

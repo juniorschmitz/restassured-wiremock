@@ -17,4 +17,4 @@ jobs:
             distribution: 'zulu'
             java-version: 18
         - name: Run RestAssured tests using Maven
-          run: mvn clean compile test
+          run: mvn test
