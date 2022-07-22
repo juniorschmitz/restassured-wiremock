@@ -5,10 +5,14 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 
+@Epic("Users API")
 @WireMockTest(httpPort = 9999)
 public class GetUsersTest {
 
@@ -24,6 +28,8 @@ public class GetUsersTest {
     }
 
     @Test
+    @Tag("get_users")
+    @Description("Get Users")
     public void getUsersReturnsUsersList() {
         String expectedName = "Bruce Wayne";
         given().
