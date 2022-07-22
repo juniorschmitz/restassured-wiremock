@@ -16,5 +16,19 @@ jobs:
           with:
             distribution: 'zulu'
             java-version: 18
+        - name: Cache Maven packages
+            uses: actions/cache@v3
+            with:
+              path: ~/.m2
+              key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+              restore-keys: ${{ runner.os }}-m2
         - name: Run RestAssured tests using Maven
           run: mvn test
+        - name: Generate Reports
+          if: ${{ always() }}
+          run: mvn allure:report
+        - name: Store Reports
+          uses: actions/upload-artifact@v3
+            with:
+              name: allure-reports
+              path: target/site/allure-maven-plugin
