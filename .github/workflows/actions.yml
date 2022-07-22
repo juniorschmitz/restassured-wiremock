@@ -30,6 +30,7 @@ jobs:
           run: mvn allure:report
         - name: Store Reports
           uses: actions/upload-artifact@v3
-            with:
-              name: allure-reports
-              path: target/site/allure-maven-plugin
+          with:
+            name: allure-reports
+            path: target/site/allure-maven-plugin/
+            retention-days: 1
