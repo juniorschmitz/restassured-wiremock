@@ -1,4 +1,6 @@
 .idea/
 reports/
 target/
+allure-results/
 *.iml
+.allure

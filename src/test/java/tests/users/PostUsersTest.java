@@ -2,11 +2,14 @@ package tests.users;
 
 import com.github.tomakehurst.wiremock.extension.responsetemplating.ResponseTemplateTransformer;
 import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import model.User;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
@@ -15,6 +18,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Epic("Users API")
 public class PostUsersTest {
 
     private RequestSpecification requestSpec;
@@ -36,6 +40,8 @@ public class PostUsersTest {
     }
 
     @Test
+    @Tag("post_users_v1")
+    @Description("Post Users V1")
     public void createsANewUserFirstOption() {
         User userToCreate = new User("Potato Teste", "mrpotato", "potato@teste.com");
 
@@ -57,6 +63,8 @@ public class PostUsersTest {
     }
 
     @Test
+    @Tag("post_users_v2")
+    @Description("Post Users V2")
     public void createsANewUserSecondOption() {
         User userToCreate = new User("Potato Teste", "mrpotato", "potato@teste.com");
 
